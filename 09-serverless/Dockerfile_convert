@@ -1,0 +1,11 @@
+FROM public.ecr.aws/lambda/python:3.10
+
+RUN python -m ensurepip --upgrade
+
+RUN pip install --upgrade pip & \
+    pip install pillow & \
+    pip install tensorflow==2.17.0
+
+COPY . .
+
+CMD ["/bin/bash"]
